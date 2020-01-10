@@ -21,5 +21,6 @@ done
 
 # Upload dashboards
 for DASHBOARD_UPLOAD in $(ls -1 $DASHBOARDS_DIR/*.upload); do
+    echo -e "\n\n$DASHBOARD_UPLOAD:"
     curl -X POST "${CURL_ARGS[@]}" $GRAFANA_URL/api/dashboards/db --data "@$DASHBOARD_UPLOAD"
 done
